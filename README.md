@@ -67,10 +67,8 @@ the buildings..."
 
 ---
 
-```md
 ## 📁 Project Structure
-
-```plaintext
+```
 LegalDocAssistant/
 │
 ├── backend/
@@ -92,6 +90,7 @@ LegalDocAssistant/
 ├── .env.example            # Environment configuration template
 ├── requirements.txt        # Python dependencies
 └── Dockerfile              # Containerization setup
+```
 ## Setup & Running
 
 ### Prerequisites
