@@ -5,7 +5,7 @@
 
 ---
 
-## What is this?
+## ⍰ What is this?
 
 Harvey, the Legal Document Assistant, is a production-grade **Retrieval Augmented Generation (RAG)** 
 system built for Indian legal documents. Upload any legal PDF like contracts, 
@@ -17,7 +17,7 @@ page citations.
 
 ---
 
-## Demo
+## ▶️ Demo
 
 **Question:** "What are the obligations of the lessee?"
 
@@ -28,12 +28,12 @@ the buildings..."
 
 ---
 
-## Architecture
+## 🧱 Architecture
 ![Architecture Diagram](assets/architecture.png)
 
 ---
 
-## Tech Stack
+## ⚒️ Tech Stack
 
 | Layer | Technology |
 |---|---|
@@ -50,7 +50,7 @@ the buildings..."
 
 ---
 
-## Features
+## 🎚️ Features
 
 - **Hybrid Search** — Combines semantic vector search (FAISS) with 
   keyword search (BM25) using Reciprocal Rank Fusion
@@ -67,23 +67,26 @@ the buildings..."
 
 ## Project Structure
 LegalDocAssistant/
-
+│
 ├── backend/
-│   ├── ingestion.py      
-│   ├── retriever.py      
-│   ├── reranker.py      
-│   ├── rag_pipeline.py   
-│   └── main.py           
+│   ├── ingestion.py        # Document loading, chunking, embedding
+│   ├── retriever.py        # Hybrid retrieval (FAISS + BM25)
+│   ├── reranker.py         # Cross-encoder reranking
+│   ├── rag_pipeline.py     # Core RAG orchestration
+│   └── main.py             # FastAPI server
+│
 ├── frontend/
-│   └── app.py           
+│   └── app.py              # Streamlit UI
+│
 ├── evaluation/
-│   └── eval_pipeline.py  
+│   └── eval_pipeline.py    # Metrics & evaluation scripts
+│
 ├── data/
-│   └── documents/        
-├── .env.example         
-├── requirements.txt
-└── Dockerfile
-
+│   └── documents/          # Input PDF files
+│
+├── .env.example            # Environment configuration template
+├── requirements.txt        # Python dependencies
+└── Dockerfile              # Containerization setup
 ---
 
 ## Setup & Running
