@@ -1,0 +1,29 @@
+# Virtual environment
+venv/
+
+# Environment variables - NEVER push this
+.env
+
+# Python compiled files
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+
+# Data files - indexes are large and rebuilt locally
+data/faiss_index/
+data/bm25_index.pkl
+data/chunks.pkl
+
+# Keep the documents folder but not the PDFs inside
+data/documents/*.pdf
+
+# Mac system files
+.DS_Store
+
+# VS Code settings
+.vscode/
+
+# Jupyter notebooks checkpoints
+.ipynb_checkpoints/

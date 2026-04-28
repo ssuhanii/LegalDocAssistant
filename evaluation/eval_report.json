@@ -1,0 +1,117 @@
+[
+  {
+    "question": "What are the termination conditions mentioned in the agreement?",
+    "answer": "According to clause 4 of the leaseDeed.pdf (Page 1), the termination conditions are:\n\n\"If the said monthly ground rent or any part thereof payable in the manner hereinbefore\nmentioned shall be an arrears for the space of.....months after the same shall have become\ndue and payable on any of the said days wherein the same ought to be paid as aforesaid\"\n\nNote that the exact number of months is not specified in the provided context.",
+    "faithfulness": 0.8,
+    "keyword_hit": 0.5,
+    "answer_words": 75,
+    "sources_count": 3,
+    "latency_sec": 12.82,
+    "sources": [
+      {
+        "source": "leaseDeed.pdf",
+        "page": 1
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 1
+      },
+      {
+        "source": "leaseDeed.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "question": "What are the liability limitations in the contract?",
+    "answer": "I could not find relevant information in the provided documents regarding liability limitations in the contract. The context only discusses the powers granted to the Attorney, such as entering into contracts, paying fees, and taking actions related to the principal's lands, estates, and premises, but it does not explicitly mention liability limitations.",
+    "faithfulness": 0.4423,
+    "keyword_hit": 0.5,
+    "answer_words": 52,
+    "sources_count": 3,
+    "latency_sec": 3.57,
+    "sources": [
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 3
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 0
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 0
+      }
+    ]
+  },
+  {
+    "question": "Who are the parties to the agreement?",
+    "answer": "The parties to the agreement are:\n\n1. The Lessor (not specified by name)\n2. The Lessee (not specified by name)\n\nThese parties are referred to in clauses 5.a, 4, and [1] (leaseDeed.pdf, Page: 1).",
+    "faithfulness": 0.5294,
+    "keyword_hit": 0.5,
+    "answer_words": 34,
+    "sources_count": 3,
+    "latency_sec": 3.65,
+    "sources": [
+      {
+        "source": "leaseDeed.pdf",
+        "page": 1
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 1
+      },
+      {
+        "source": "leaseDeed.pdf",
+        "page": 1
+      }
+    ]
+  },
+  {
+    "question": "What is the governing law for disputes?",
+    "answer": "I could not find relevant information in the provided documents regarding the governing law for disputes.",
+    "faithfulness": 0.4375,
+    "keyword_hit": 0.75,
+    "answer_words": 16,
+    "sources_count": 3,
+    "latency_sec": 1.83,
+    "sources": [
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 2
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 3
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 0
+      }
+    ]
+  },
+  {
+    "question": "What are the payment terms specified?",
+    "answer": "According to [2] (Source: leaseDeed.pdf, Page: 0), the Lessee shall pay interest at the rate of ....... % per annum from the due date till payment. Additionally, the Lessee is required to bear and pay all existing and future rates, taxes, assessments, duties, cess, impositions, outgoings, and burdens whatsoever that may be imposed or charged upon the property during the term.\n\nNo specific percentage is mentioned in [3] (Source: GeneralPowerofAttorneyLaw.pdf, Page: 2), which appears to relate to receiving a balance.",
+    "faithfulness": 0.6625,
+    "keyword_hit": 0.5,
+    "answer_words": 80,
+    "sources_count": 3,
+    "latency_sec": 5.66,
+    "sources": [
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 0
+      },
+      {
+        "source": "leaseDeed.pdf",
+        "page": 0
+      },
+      {
+        "source": "GeneralPowerofAttorneyLaw.pdf",
+        "page": 2
+      }
+    ]
+  }
+]
