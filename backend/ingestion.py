@@ -54,7 +54,7 @@ def load_documents(docs_dir: Path = DOCS_DIR) -> list:
 
     all_docs = []
     for pdf_path in pdf_files:
-        print(f"  📄 Loading: {pdf_path.name}")
+        print(f"Loading: {pdf_path.name}")
         loader = PyPDFLoader(str(pdf_path))
         docs = loader.load()
         # Attach the source filename as metadata
@@ -62,7 +62,7 @@ def load_documents(docs_dir: Path = DOCS_DIR) -> list:
             doc.metadata["source"] = pdf_path.name
         all_docs.extend(docs)
 
-    print(f"  ✅ Loaded {len(all_docs)} pages from {len(pdf_files)} PDF(s).")
+    print(f"Loaded {len(all_docs)} pages from {len(pdf_files)} PDF(s).")
     return all_docs
 
 
@@ -74,23 +74,23 @@ def split_documents(docs: list) -> list:
         separators=["\n\n", "\n", ".", " ", ""],
     )
     chunks = splitter.split_documents(docs)
-    print(f"  ✅ Created {len(chunks)} chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP}).")
+    print(f"Created {len(chunks)} chunks (size={CHUNK_SIZE}, overlap={CHUNK_OVERLAP}).")
     return chunks
 
 
 def build_faiss_index(chunks: list, embeddings: HuggingFaceEmbeddings) -> FAISS:
     """Embed chunks and persist a FAISS vector store."""
-    print("  🔢 Building FAISS index — this may take a minute…")
+    print("Building FAISS index — this may take a minute…")
     vectorstore = FAISS.from_documents(chunks, embeddings)
     FAISS_INDEX.mkdir(parents=True, exist_ok=True)
     vectorstore.save_local(str(FAISS_INDEX))
-    print(f"  ✅ FAISS index saved → {FAISS_INDEX}")
+    print(f"FAISS index saved → {FAISS_INDEX}")
     return vectorstore
 
 
 def build_bm25_index(chunks: list) -> BM25Okapi:
     """Build a BM25 keyword index from chunk texts."""
-    print("  🔤 Building BM25 index…")
+    print("Building BM25 index…")
     tokenized = [doc.page_content.lower().split() for doc in chunks]
     bm25 = BM25Okapi(tokenized)
 
@@ -100,13 +100,13 @@ def build_bm25_index(chunks: list) -> BM25Okapi:
     with open(CHUNKS_CACHE, "wb") as f:
         pickle.dump(chunks, f)
 
-    print(f"  ✅ BM25 index saved  → {BM25_INDEX}")
+    print(f"BM25 index saved  → {BM25_INDEX}")
     return bm25
 
 
 def ingest(docs_dir: Path = DOCS_DIR) -> None:
     """Full ingestion pipeline: load → split → embed → index."""
-    print("\n🚀 Starting ingestion pipeline…\n")
+    print("\Starting ingestion pipeline…\n")
 
     docs   = load_documents(docs_dir)
     chunks = split_documents(docs)
@@ -116,7 +116,7 @@ def ingest(docs_dir: Path = DOCS_DIR) -> None:
     build_faiss_index(chunks, embeddings)
     build_bm25_index(chunks)
 
-    print("\n🎉 Ingestion complete! Indexes are ready for querying.\n")
+    print("\Ingestion complete! Indexes are ready for querying.\n")
 
 
 if __name__ == "__main__":

@@ -84,7 +84,7 @@ def run_evaluation(dataset: list[dict] | None = None) -> list[dict]:
 
     results = []
     print("\n" + "=" * 70)
-    print("  LegalDocAssistant — Evaluation Report")
+    print("LegalDocAssistant — Evaluation Report")
     print("=" * 70)
 
     for i, item in enumerate(dataset, start=1):

@@ -130,7 +130,7 @@ class RAGPipeline:
 
         # ── Log to console for debugging ──────────────────────────────────────
         print(
-            f"\n⏱  Latency breakdown → "
+            f"\nLatency breakdown → "
             f"Retrieval: {retrieval_time}s | "
             f"Rerank: {rerank_time}s | "
             f"LLM: {llm_time}s | "

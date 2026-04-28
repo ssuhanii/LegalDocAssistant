@@ -35,11 +35,11 @@ load_dotenv()
 async def lifespan(app: FastAPI):
     """Pre-load the RAG pipeline so the first request isn't slow."""
     if CHUNKS_CACHE.exists():
-        print("⚙️  Warming up RAG pipeline…")
+        print("Warming up RAG pipeline…")
         get_pipeline()
-        print("✅ Pipeline ready.")
+        print("Pipeline ready.")
     else:
-        print("⚠️  No index found — run POST /ingest to index your documents.")
+        print("No index found — run POST /ingest to index your documents.")
     yield
 
 

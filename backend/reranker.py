@@ -17,7 +17,7 @@ class Reranker:
     """Wraps a sentence-transformers CrossEncoder to rerank retrieved chunks."""
 
     def __init__(self, model_name: str = RERANKER_MODEL):
-        print(f"  ⚙️  Loading reranker: {model_name}")
+        print(f"Loading reranker: {model_name}")
         self._model = CrossEncoder(model_name)
 
     def rerank(

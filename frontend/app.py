@@ -154,7 +154,7 @@ with st.sidebar:
     st.markdown("---")
 
     # Advanced settings
-    with st.expander("⚙️ Advanced settings"):
+    with st.expander("Advanced settings"):
         retrieve_k = st.slider("Retrieve candidates (k)", 5, 20, 10)
         rerank_n   = st.slider("Rerank top-n chunks",     1, 10,  3)
 
