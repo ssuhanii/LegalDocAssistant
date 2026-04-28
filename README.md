@@ -1,15 +1,15 @@
-# ⚖️ LegalDocAssistant
+# ⚖️ Harvey-LegalDocAssistant
 
 > Ask questions about Indian legal documents and get precise, 
-> cited answers — powered by local AI. No data ever leaves your machine.
+> cited answers powered by local AI. No data ever leaves your machine.
 
 ---
 
 ## What is this?
 
-LegalDocAssistant is a production-grade **Retrieval Augmented Generation (RAG)** 
-system built for Indian legal documents. Upload any legal PDF — contracts, 
-lease deeds, power of attorney documents, judgements — and ask questions 
+Harvey, the Legal Document Assistant, is a production-grade **Retrieval Augmented Generation (RAG)** 
+system built for Indian legal documents. Upload any legal PDF like contracts, 
+lease deeds, power of attorney documents, judgements and ask questions 
 in plain English. The AI answers strictly from your documents with exact 
 page citations.
 
@@ -29,63 +29,7 @@ the buildings..."
 ---
 
 ## Architecture
-            PDF Documents
-                │
-                ▼
-┌──────────────────────────────┐
-│      Ingestion Pipeline      │
-│                              │
-│  • PDF Loader (PyPDF)        │
-│  • Text Chunking (512 + overlap)
-│  • Metadata Extraction       │
-│  • Embedding Model           │
-│    (MiniLM)                  │
-└──────────────┬───────────────┘
-               │
-     ┌─────────┴─────────┐
-     ▼                   ▼
-┌──────────────┐   ┌──────────────┐
-│ FAISS Index  │   │  BM25 Index  │
-│ (Vector DB)  │   │ (Keyword IR) │
-└──────────────┘   └──────────────┘
-
-
-            User Query
-                │
-                ▼
-┌──────────────────────────────┐
-│     Hybrid Retriever         │
-│                              │
-│ • FAISS (semantic search)    │
-│ • BM25 (keyword search)      │
-│ • RRF Fusion                 │
-└──────────────┬───────────────┘
-               │
-        Top-K (≈10 chunks)
-               │
-               ▼
-┌──────────────────────────────┐
-│        Reranker              │
-│                              │
-│ Cross-Encoder                │
-│ (ms-marco-MiniLM)            │
-│ → Relevance Scoring          │
-└──────────────┬───────────────┘
-               │
-        Top-N (≈3 chunks)
-               │
-               ▼
-┌──────────────────────────────┐
-│          LLM Layer           │
-│                              │
-│ :contentReference[oaicite:2]{index=2} + Llama 3.2       │
-│ Prompt Engineering           │
-│ Context + Chat History       │
-└──────────────┬───────────────┘
-               │
-               ▼
-   Answer + Citations + Latency
-
+![Architecture Diagram](assets/architecture.png)
 
 ---
 
@@ -124,18 +68,18 @@ the buildings..."
 ## Project Structure
 LegalDocAssistant/
 ├── backend/
-│   ├── ingestion.py      # PDF loading, chunking, indexing
-│   ├── retriever.py      # Hybrid FAISS + BM25 search with RRF
-│   ├── reranker.py       # Cross-encoder reranking
-│   ├── rag_pipeline.py   # Orchestration + LLM generation
-│   └── main.py           # FastAPI endpoints
+│   ├── ingestion.py      
+│   ├── retriever.py      
+│   ├── reranker.py      
+│   ├── rag_pipeline.py   
+│   └── main.py           
 ├── frontend/
-│   └── app.py            # Streamlit chat UI
+│   └── app.py           
 ├── evaluation/
-│   └── eval_pipeline.py  # Faithfulness + keyword evaluation
+│   └── eval_pipeline.py  
 ├── data/
-│   └── documents/        # Drop your legal PDFs here
-├── .env.example          # Environment variable template
+│   └── documents/        
+├── .env.example         
 ├── requirements.txt
 └── Dockerfile
 
