@@ -67,6 +67,7 @@ the buildings..."
 
 ## Project Structure
 LegalDocAssistant/
+
 ├── backend/
 │   ├── ingestion.py      
 │   ├── retriever.py      
