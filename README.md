@@ -29,7 +29,7 @@ the buildings..."
 ---
 
 ## Architecture
-![Architecture Diagram](assets/ArchitectureDiagram.png)
+![Architecture Diagram](assets/architecture.png)
 
 ---
 
